@@ -26,5 +26,20 @@ void insert(int *arr, int size, int position, int value){
 
     print("Array after insertion: ", arr, size);
 }
+
+
+void remove(int *arr, int size, int x){
+    int i;
+    for (i = 0; i < size; i++)
+        if (arr[i] == x)
+            break;
+    
+    if (i < size) {
+        size = size - 1;
+        for (int j = i; j < size; j++)
+            arr[j] = arr[j + 1];
+    }
+    print("Array after deletion: ", arr, size);
+}
   
 
