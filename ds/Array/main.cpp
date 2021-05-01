@@ -15,7 +15,7 @@ int main () {
     cout << "Array Length: " <<  len << endl;
 
     insert(array, len, 1, 0);
-    remove(array, len, 1);
+    remove(array, (len + 1), 1);
 
     return 0;
 }
