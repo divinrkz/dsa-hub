@@ -14,7 +14,7 @@ int main () {
     print("Array elements", array, len);
     cout << "Array Length: " <<  len << endl;
 
-    insert(array, len, 1, 100);
+    insert(array, len, 1, 0);
 
     return 0;
 }
