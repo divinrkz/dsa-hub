@@ -7,14 +7,14 @@ using namespace std;
 
 int main () {
 
-    int array[] = {1, 2, 3, 4};
+    int array[] = {1, 2, 3, 4, 5};
 
-     print("Array elements", array, 5);
-    //  showArrayContiguity("Array memory locations", array1, 5);
-    //  insertAtBeginning(array1, 5, 4, 0);
-    //  insertAtAGivenIndex(array1, 5, 4, 4, 5);
-    //  insertBeforeAGivenIndex(array1, 5, 4, 1, 5);
-    // insertX(array1, 4, 5, 2);
+    int len = sizeof(array) / sizeof(array[0]);
+
+    print("Array elements", array, len);
+    cout << "Array Length: " <<  len << endl;
+
+    insertAtBeginning(array, )
 
     return 0;
 }
