@@ -5,6 +5,20 @@
 using namespace std;
 
 
+
+int getTotal(Node *head) {
+    int count = 0;
+    Node* node = head;
+
+    while(node != NULL) {
+        count ++;
+        node = node->next;
+    }
+    
+    return count;
+}
+
+
 Node* getNode(int data) {
     Node* node = new Node;
     node->data = data;
@@ -15,12 +29,11 @@ Node* getNode(int data) {
 
 Node* search(Node *head, int data) {
     Node *node = head;
-    while(p!=NULL) {
-            if (key == p->flightStop.name)
-                return p;
-        p = p->next;
-        }
-        return NULL;
+    while(node->data != data) {
+       node = node->next;
+    }
+    
+    return node;
 }
 
 Node* create(int data){
@@ -83,13 +96,9 @@ Node* insertMany(Node* head, int array[], int len){
 
 
 
-Node* replaceAt(Node* head, int search, int data) {
-    Node* temp = head;
-
-    while (temp->data != search) {
-        temp = temp->next;
-    }
-
+Node* replaceAt(Node* head, int searchKey, int data) {
+    Node* temp = search(head, searchKey);
+    
     temp->data = data;
 
     print("LinkedList Elements After Replacing", head);

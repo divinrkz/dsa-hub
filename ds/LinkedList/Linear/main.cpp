@@ -16,9 +16,13 @@ int main() {
     HEAD = create(1);
     print("LinkedList Elements", HEAD);
     
+    
     insert(HEAD, 2);
     insertMany(HEAD, array, len);
-    insertHeadNode(HEAD, 0);
+    insert(HEAD, 0, "START");
+    cout << "Total LinkedList Elements: " << getTotal(HEAD) << endl; 
+    replaceAt(HEAD, 2, 400);
+    insertBefore(HEAD, 2, 400);
 
     cout << endl;
     
