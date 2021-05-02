@@ -39,6 +39,8 @@ Node* insert(Node* head, int data, string position="END") {
     }
     else if (position == "START") {
         node->next = head;
+        head = node;
+        print("LinkedList Elements After Insertion At HEAD", head);
     } 
     return head;
 }
