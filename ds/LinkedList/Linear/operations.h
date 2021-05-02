@@ -6,21 +6,21 @@ using namespace std;
 
 
 Node* create(int data){
-    Node* head = new Node;
-    head->data = data;
-    head->next = NULL;
+    Node* node = new Node;
+    node->data = data;
+    node->next = NULL;
 }
 
 
 
 void print(string title, Node* head) {
-    Node* ptr = head;
+    Node* node = head;
 
     cout << title << ": [";
 
-    while (ptr != NULL) {
-        cout << " " << ptr->data <<  " ";
-        ptr = ptr->next;
+    while (node != NULL) {
+        cout << " " << node->data <<  " ";
+        node = ptr->next;
     }
 
     cout << "]" << endl;
@@ -28,6 +28,12 @@ void print(string title, Node* head) {
 
 
 
-Node* insert() {
-    Node *last, ptr;
+Node* insert(Node* head, int data) {
+    Node* node = new Node;
+    node->data = data;
+    node->next = NULL;
+
+    head->next = node;
+    return head;
 }
+
