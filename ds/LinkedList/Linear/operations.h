@@ -22,6 +22,12 @@ void print(string title, Node* head) {
         cout << " " << ptr->data <<  " ";
         ptr = ptr->next;
     }
-    
+
     cout << "]" << endl;
+}
+
+
+
+Node* insert() {
+    Node *last, ptr;
 }
