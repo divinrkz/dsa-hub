@@ -22,7 +22,6 @@ int main() {
     insert(HEAD, 0, "START");
     cout << "Total LinkedList Elements: " << getTotal(HEAD) << endl; 
     replaceAt(HEAD, 2, 400);
-    insertBefore(HEAD, 2, 400);
 
     cout << endl;
     

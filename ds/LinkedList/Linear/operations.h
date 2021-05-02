@@ -108,23 +108,4 @@ Node* replaceAt(Node* head, int searchKey, int data) {
 }
 
 
-Node* insertBefore(Node* head, int search, int data) {
-    Node* temp = head;
-    Node* previous;
 
-    while (temp->data != search) {
-        previous = temp;
-        temp = temp->next;
-    }
-
-    Node* node = getNode(data);
-
-    previous->next = node;
-    node->next = temp;
-
-
-    print("LinkedList Elements After Inserting before", head);
-
-
-    return head;
-}
