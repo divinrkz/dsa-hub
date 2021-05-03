@@ -108,4 +108,44 @@ Node* replaceAt(Node* head, int searchKey, int data) {
 }
 
 
+void remove(Node* head, string position="END", int search=-1) {
+    Node *node = head;
+    if (position == "END") {
+        head = head->next;
+        if (node->next == NULL) delete(node);
+    } else if (position == "START") {
+        Node *previous;
+
+        while(node->next != NULL) {
+            previous = node;
+            node = node->next;
+        }
+        previous->next = NULL;
+        delete(node);
+    } else if (position == "SEARCH") {
+        Node *previous;
+        node = head;
+
+        while(node->next != NULL | previous ->data != search) {
+            previous = node;
+            node = node->next;
+        }
+        previous->next = NULL;
+        delete(node);
+    }
+}
+
+
+Node* concatenate(Node *head1, Node* head2) {
+    Node *node = head1;
+
+    while(node->next != NULL) {
+        node = node->next;
+    }
+    node->next = head2;
+
+    return head1;
+}
+
+
 
