@@ -23,6 +23,10 @@ int main() {
     cout << "Total LinkedList Elements: " << getTotal(HEAD) << endl; 
     replaceAt(HEAD, 2, 400);
 
+    remove(HEAD);
+    remove(HEAD, "START");
+    remove(HEAD, "SEARCH", 3);
+
     cout << endl;
     
     return 0;

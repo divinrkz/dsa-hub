@@ -133,6 +133,9 @@ void remove(Node* head, string position="END", int search=-1) {
         previous->next = NULL;
         delete(node);
     }
+
+    
+    print("LinkedList Elements After Removing", head);
 }
 
 
@@ -143,6 +146,8 @@ Node* concatenate(Node *head1, Node* head2) {
         node = node->next;
     }
     node->next = head2;
+
+    print("LinkedList Elements After Concatenation", head1);
 
     return head1;
 }
