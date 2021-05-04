@@ -15,7 +15,8 @@ DeQueue* create(DeQueue *dqueue, int size) {
 
 
 
-void insert_at_front(DeQueue *dqueue, int x) { 
+void enqueue(DeQueue *dqueue, int x, string position = "FRONT") { 
+    if (position == "FRONT") {
     if (dqueue->rear == dqueue->size-1) 
         cout << "Overflow";
     if (dqueue->front == -1){ 
@@ -26,7 +27,20 @@ void insert_at_front(DeQueue *dqueue, int x) {
         dqueue->front = (dqueue->size - 1) ; 
     else
         dqueue->front = dqueue->front-1; 
-    dqueue->DQ[dqueue->front] = x ;            // insert current element into Deque
+    dqueue->DQ[dqueue->front] = x ;          
+    }
+    else if (position == "REAR") {
+            if (dqueue->rear >= (dqueue->size - 1)) {
+        cout << "Overflow" << endl;
+    }else {
+        if (dqueue->front == -1 && dqueue->rear == -1)  {
+            dqueue->front = dqueue->rear = 0;
+        } else {
+            dqueue->rear = dqueue->rear + 1;
+        }
+        dqueue->DQ[dqueue->rear] = x;
+    }
+    }
 } 
 
 
