@@ -14,6 +14,20 @@ DeQueue* create(int size) {
 }
 
 
+int getSize(DeQueue *dqueue) {
+    return dqueue->size;
+}
+
+
+int getFront(DeQueue *dqueue) {
+    return dqueue->DQ[dqueue->front];
+}
+
+int getRear(DeQueue *dqueue) {
+   return dqueue->DQ[dqueue->rear];
+}
+
+
 void print(string title, DeQueue *dqueue) {
     cout << title << ": [ ";
 
