@@ -1,17 +1,19 @@
 #include <iostream>
-#include "./array-operations.h"
+#include "./linked-list-operations.h"
 
 using namespace std;
 
 
 
-
 int main () {
-	Queue *q = create(10);
 
 	cout << endl;
 
-	cout << "Size of LinearQueue is: "<< getSize(q) << endl;
+	QNode *front;  
+	QNode *rear;   
+
+    
+	cout << "Size of LinearQueue is: "<< getSize(front) << endl;
 
 	enqueue(q, 1);
 	enqueue(q, 2);
@@ -25,7 +27,6 @@ int main () {
 
 	cout << endl;
 
-	
 	
     return 0;
 }

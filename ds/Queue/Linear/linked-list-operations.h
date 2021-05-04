@@ -11,8 +11,8 @@ int getSize(QNode *front)  {
     int count = 0;    
 
     while(qnode != NULL) {  
+        count++;
         qnode = qnode -> next;
-        count ++;
     }  
 
     return count;
@@ -42,7 +42,7 @@ void print(string title, QNode *front)  {
 }  
 
 
-void insert(QNode *front, QNode *rear, int data)  {  
+void enqueue(QNode *front, QNode *rear, int data)  {  
     QNode *qnode;  
     int item;   
       
@@ -65,8 +65,10 @@ void insert(QNode *front, QNode *rear, int data)  {
             rear->next = NULL;  
         }  
     }  
+
+    print("LinearQueue elements after insertion", front);
 }     
-void remove (QNode *front, QNode *rear)  {  
+void dequeue (QNode *front, QNode *rear)  {  
     QNode *qnode;  
     if(front == NULL){  
         cout << "Underflow" << endl;  
@@ -77,6 +79,9 @@ void remove (QNode *front, QNode *rear)  {
         front = front -> next;  
         delete(qnode);  
     }  
+
+    print("LinearQueue elements after insertion", front);
+
 }  
 
 
