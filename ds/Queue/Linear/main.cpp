@@ -1,4 +1,5 @@
 #include <iostream>
+#include "./array-operations.h"
 
 using namespace std;
 
@@ -8,16 +9,18 @@ using namespace std;
 
 
 int main () {
-	struct Queue q;
-	
-	create(&q, 10);
-	enqueue(&q, 45.09);
-	enqueue(&q, 45.09);
-	enqueue(&q, 45.09);
+	Queue *q = create(10);
+	cout << "Size of LinearQueue is: "<< getSize(q) << endl;
 
-	
-	cout<<"All Values: "<<endl;
-    display(&q);
+	enqueue(q, 1);
+	enqueue(q, 2);
+	enqueue(q, 3);
+	enqueue(q, 4);
+
+	cout << "The FirstElement in LinearQueue is: " << getFront(q) << endl;
+	cout << "The LastElement in LinearQueue is: " << getRear(q) << endl;
+
+	dequeue(q);
 
 
     return 0;
