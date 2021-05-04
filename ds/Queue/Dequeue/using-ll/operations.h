@@ -4,6 +4,11 @@
 
 
 
+DQNode* create() {
+    DQNode *dqnode = new DQNode;
+    return dqnode;
+}
+
 
 int getSize(DQNode *head)  {  
     DQNode *qnode = head;  

@@ -9,9 +9,8 @@ int main () {
 
 	cout << endl;
 
-	DQNode *head = NULL;  
+	DQNode *head = create();  
 
-    
 	cout << "Size of DeQueue is: "<< getSize(head) << endl;
 
 	enqueue(head, 1);
