@@ -1,15 +1,17 @@
 #include <iostream>
-#define MAX 5
+#include <string>
+#define MAX_SIZE 10
+
 using namespace std;
 
-int Q[MAX], Pr[MAX];
+int Q[MAX_SIZE], Pr[MAX_SIZE];
 int rear = -1, front = -1;
 
-void enqueue(int data, int priority)
-{
+void enqueue(int data, int priority){
     int i ;
-    if ((front == 0) && (rear == MAX - 1)){
-         cout << "Queue is full";
+    if ((front == 0) && (rear == (MAX_SIZE - 1))){
+         cout << "Overflow" << endl;
+         return;
     }
 
     else
@@ -37,22 +39,16 @@ void enqueue(int data, int priority)
             rear++;
         }
     }
+    print("PriorityQueue after insertion");
 }
 
-void display()
-{
-    if (front == -1)
-    {
-        cout << "Queue is Empty";
-    }
-    else
-    {
-        for (int i = front; i <= rear; i++)
-        {
-        cout << "Data (" << Q[i] << ") ==> It's Priority (" << Pr[i] <<")"<< endl;
-        }
+void print(string title){
+    cout << title << ": [";
+    for (int i = front; i <= rear; i++){
+        cout << "(Data => " << Q[i] << ", Priority => " << Pr[i] <<" )  "<< endl;
     }
 
+    cout << endl;
 }
 
 int dequeue()
@@ -63,8 +59,6 @@ int dequeue()
     }
     else
     {
-        cout << "deleted Element =" << Q[front] << endl;
-        cout << "Its Priority = " << Pr[front] << endl;
         if (front == rear)
             front = rear = -1;
         else
@@ -74,31 +68,20 @@ int dequeue()
 
 int main()
 {
-    int data, priority,choice,flag=1;
-           cout<<"\t\t\t\tPRIORITY QUEUE 1"<<endl;
+	cout << endl;
 
-     while( flag == 1)
-     {
-      cout<<"\t\t\t\n1.enqueue \t\t\t\n2.dequeue \t\t\t\n3.displayQueue \t\t\t\n4.exit\n";
-      cin>>choice;
-      switch (choice)
-      {
-      case 1: cout<<"Enter Data:\n";
-              cin>>data;
-              cout<<endl;
-              cout<<"Enter Priority:\n";
-              cin>>priority;
-              enqueue(data,priority);
-              break;
-      case 2: dequeue();
-              break;
-      case 3: display();
-              break;
-      case 4: flag = 0;
-              break;
-      default: flag=1;
-          break;
-      }
-     }
+	enqueue(1, 1);
+	enqueue(2, 2);
+	enqueue(3, 3);
+	enqueue(0, 0);
+
+	cout << "The FirstElement in DeQueue is: " << getFront(dq) << endl;
+	cout << "The LastElement in DeQueue is: " << getRear(dq) << endl;
+
+	dequeue();
+	dequeue();
+
+	cout << endl;
+    
  return 0;
 }
