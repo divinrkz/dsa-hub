@@ -1,104 +1,83 @@
-#include<stdio.h>   
-#include<stdlib.h>  
-struct node   
-{  
-    int data;   
-    struct node *next;  
-};  
-struct node *front;  
-struct node *rear;   
-void insert();  
-void delete();  
-void display();  
-void main ()  
-{  
-    int choice;   
-    while(choice != 4)   
-    {     
-        printf("\n*************************Main Menu*****************************\n");  
-        printf("\n=================================================================\n");  
-        printf("\n1.insert an element\n2.Delete an element\n3.Display the queue\n4.Exit\n");  
-        printf("\nEnter your choice ?");  
-        scanf("%d",& choice);  
-        switch(choice)  
-        {  
-            case 1:  
-            insert();  
-            break;  
-            case 2:  
-            delete();  
-            break;  
-            case 3:  
-            display();  
-            break;  
-            case 4:  
-            exit(0);  
-            break;  
-            default:   
-            printf("\nEnter valid choice??\n");  
-        }  
+#include <iostream>
+#include <string>
+#include "./declaration.h"
+
+
+
+
+int getSize(QNode *front)  {  
+    QNode *qnode;  
+    qnode = front;  
+    int count = 0;    
+
+    while(qnode != NULL) {  
+        qnode = qnode -> next;
+        count ++;
     }  
+
+    return count;
 }  
-void insert()  
-{  
-    struct node *ptr;  
+
+
+int getFront(QNode *front) {
+    return front->data;
+}
+
+int getRear(QNode *rear) {
+    return rear->data;
+}
+
+void print(string title, QNode *front)  {  
+    QNode *qnode;  
+    qnode = front;      
+  
+    cout << title << ": [ " << endl;  
+    
+    while(qnode != NULL) {  
+            cout << qnode->data << " ";  
+            qnode = qnode -> next;
+    }  
+
+    cout << "]" << endl;
+}  
+
+
+void insert(QNode *front, QNode *rear, int data)  {  
+    QNode *qnode;  
     int item;   
       
-    ptr = (struct node *) malloc (sizeof(struct node));  
-    if(ptr == NULL)  
-    {  
-        printf("\nOVERFLOW\n");  
+    qnode = new QNode;
+
+    if(qnode == NULL){  
+        cout << "Overflow" << endl;  
         return;  
     }  
-    else  
-    {   
-        printf("\nEnter value?\n");  
-        scanf("%d",&item);  
-        ptr -> data = item;  
-        if(front == NULL)  
-        {  
-            front = ptr;  
-            rear = ptr;   
+    else {    
+        qnode->data = data;  
+        if(front == NULL)  {  
+            front = qnode;  
+            rear = qnode;   
             front -> next = NULL;  
             rear -> next = NULL;  
-        }  
-        else   
-        {  
-            rear -> next = ptr;  
-            rear = ptr;  
+        } else {  
+            rear -> next = qnode;  
+            rear = qnode;  
             rear->next = NULL;  
         }  
     }  
 }     
-void delete ()  
-{  
-    struct node *ptr;  
-    if(front == NULL)  
-    {  
-        printf("\nUNDERFLOW\n");  
+void remove (QNode *front, QNode *rear)  {  
+    QNode *qnode;  
+    if(front == NULL){  
+        cout << "Underflow" << endl;  
         return;  
     }  
-    else   
-    {  
-        ptr = front;  
+    else {  
+        qnode = front;  
         front = front -> next;  
-        free(ptr);  
+        delete(qnode);  
     }  
 }  
-void display()  
-{  
-    struct node *ptr;  
-    ptr = front;      
-    if(front == NULL)  
-    {  
-        printf("\nEmpty queue\n");  
-    }  
-    else  
-    {   printf("\nprinting values .....\n");  
-        while(ptr != NULL)   
-        {  
-            printf("\n%d\n",ptr -> data);  
-            ptr = ptr -> next;  
-        }  
-    }  
-}  
+
+
+

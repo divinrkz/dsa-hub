@@ -28,5 +28,10 @@ int main () {
 
 	cout << endl;
 
+
+	struct node *front;  
+	struct node *rear;   
+
+	
     return 0;
 }
