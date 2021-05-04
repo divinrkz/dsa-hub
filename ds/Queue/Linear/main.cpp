@@ -6,13 +6,13 @@ using namespace std;
 
 
 
-
-
 int main () {
 	Queue *q = create(10);
 
-	cout << endl;
+	QueueLL *front = NULL;
+	QueueLL *rear = NULL;
 
+	cout << endl;
 
 	cout << "Size of LinearQueue is: "<< getSize(q) << endl;
 
