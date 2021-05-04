@@ -18,6 +18,7 @@ int main() {
 	cout << "The LastElement in DeQueue is: " << getRear(dq) << endl;
 
 	dequeue(dq);
+	dequeue(dq, "REAR");
 
 	cout << endl;
 
