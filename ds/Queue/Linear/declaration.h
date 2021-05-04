@@ -9,6 +9,4 @@ struct Queue {
 struct QNode {
     int data;
     QNode* next;
-};
-
-​
+};​
