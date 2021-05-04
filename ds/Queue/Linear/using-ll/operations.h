@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "./declaration-ll.h"
+#include "./declaration.h"
 
 
 

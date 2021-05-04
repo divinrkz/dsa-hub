@@ -4,8 +4,8 @@
 
 
 
-DeQueue* create(DeQueue *dqueue, int size) {
-    dqueue = new DeQueue;
+DeQueue* create(int size) {
+    DeQueue *dqueue = new DeQueue;
     dqueue->size = size;
     dqueue->front = dqueue->rear = -1;
     dqueue->DQ = new int(dqueue->size);
@@ -90,18 +90,3 @@ void dequeue(DeQueue *dqueue, string position = "FRONT") {
 
 
 
-
-int main() {
-	struct DeQueue dqueue;
-	create(&dqueue, 10);
-    insert_at_rear(&dqueue, 0);
-    insert_at_rear(&dqueue, 1);
-    insert_at_rear(&dqueue, 2);
-    insert_at_rear(&dqueue, 3);
-    delete_at_front(&dqueue);
-    delete_at_rear(&dqueue);
-    insert_at_front(&dqueue, 0);
-	cout<<"All Values: "<<endl;
-    display(&dqueue);
-    return 0;
-}

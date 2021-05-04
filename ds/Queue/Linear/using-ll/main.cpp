@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./linked-list-operations.h"
+#include "./operations.h"
 
 using namespace std;
 
