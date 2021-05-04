@@ -10,6 +10,10 @@ using namespace std;
 
 int main () {
 	Queue *q = create(10);
+
+	cout << endl;
+
+
 	cout << "Size of LinearQueue is: "<< getSize(q) << endl;
 
 	enqueue(q, 1);
@@ -22,6 +26,7 @@ int main () {
 
 	dequeue(q);
 
+	cout << endl;
 
     return 0;
 }
