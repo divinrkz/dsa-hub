@@ -1,24 +1,33 @@
 #include <iostream>
+#include "./operations.h"
+
 using namespace std;
 
 
-int main(){
-    cout<<"let's insert at front: "<<endl;
-    insertAtFront(23);
-    insertAtFront(94);
-    insertAtFront(7);
-    insertAtFront(3);
-    insertAtFront(13);
-    insertAtFront(89);
-    display(first);
-    cout<<"let's insert at rear: "<<endl;
-    insertAtRear(3);
-    display(first);
-    cout<<"let's delete at rear: "<<endl;
-    deleteAtRear();
-    display(first);
-    cout<<"let's delete at front: "<<endl;
-   deleteAtFront();
-   display(first);
+
+int main () {
+
+	cout << endl;
+
+	DQNode *head = NULL;  
+
+    
+	cout << "Size of DeQueue is: "<< getSize(head) << endl;
+
+	enqueue(head, 1);
+	enqueue(head, 2);
+	enqueue(head, 3);
+	enqueue(head, 0, "FRONT");
+
+
+	cout << "The FirstElement in DeQueue is: " << getFront(head) << endl;
+	cout << "The LastElement in DeQueue is: " << getRear(head) << endl;
+
+	dequeue(head);
+	dequeue(head, "REAR");
+
+	cout << endl;
+
+	
     return 0;
 }

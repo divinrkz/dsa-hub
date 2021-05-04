@@ -59,8 +59,10 @@ void print(string title, DQNode *head) {
 
 
 DQNode* enqueue(DQNode *head, int value, string position="REAR"){
+    DQNode *dqnode;
+
     if (position == "FRONT") {
-        DQNode *dqnode = new DQNode;
+        dqnode = new DQNode;
         dqnode->data = value;
         dqnode->next = head;
         head = dqnode;
@@ -68,32 +70,38 @@ DQNode* enqueue(DQNode *head, int value, string position="REAR"){
         DQNode *temp = new DQNode;
         temp->data = value;
         temp->next = NULL;
-        DQNode *dqnode = head;
-        while (dqnode->next != NULL) dqnode = dqnode->next;
+        
+        dqnode = head;
+        while (dqnode->next != NULL) 
+            dqnode = dqnode->next;
         dqnode->next = temp;
     }
 
+    print("DeQueue Elements after insertion", head);
     return head;
 }
+
 
 void dequeue(DQNode *head, string position="FRONT"){
     if (position == "FRONT") {
         DQNode  *temp = new DQNode;
-        temp = first;
-        first = first->next;
-        free(temp);
+        temp = head;
+        head = head->next;
+
+        delete(temp);
     }else if (position == "REAR") {
         DQNode *prev = new DQNode;
-        DQNode *dqnode = first;
+        DQNode *dqnode = head;
         if (dqnode->next == NULL) {
-            first = NULL;
+            head = NULL;
         } else {
             while (dqnode->next != NULL) {
                 prev = dqnode;
                 dqnode = dqnode->next;
             }
             prev->next = NULL;
-            free(dqnode);
+            delete(dqnode);
         }
     }
+    print("DeQueue Elements after insertion", head);
 }
