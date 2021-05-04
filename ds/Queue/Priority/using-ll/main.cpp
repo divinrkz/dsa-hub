@@ -1,91 +1,94 @@
-
 #include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <cstdlib>
+#include <string>
+#include "./operations.h"
 
 using namespace std;
 
-struct Node
-{
+struct PQueue{
   int priority;
   int data;
-  struct Node *next;
-}*front=NULL, *rear=NULL,*temp;
+  PQueue *next;
+}*front=NULL, *rear=NULL, *temp;
 
-  void enqueue(int value, int p)
-  {
-    Node  *q;
-    temp = new Node;
-    temp->data = value;
-    temp->priority = p;
-    if (front == NULL || p < front->priority)
-    {
-      temp->next = front;
-      front= temp;
-    }
-    else
-    {
-      q = front;
-      while (q->next != NULL && q->next->priority <= p)
-        q = q->next;
-      temp->next = q->next;
-      q->next = temp;
-    }
+
+int getFront() {
+    return front->data;
+}
+
+
+int getRear() {
+    return rear->data;
+}
+
+void print(string title){
+  PQueue *pqueue;
+  pqueue = front;
+  if (front == NULL) {
+    cout << "Underflow" << endl;
+    return;
   }
 
-  void dequeue()
-  {
-    if (front == NULL) cout << "Queue is empty\n";
+  cout << title << ": " << endl<< "[" << endl;
 
-    temp = front;
-    cout << "Dequeued item is: " << temp->data << endl;
-    front = front->next;
-    free(temp);
-
+  while (pqueue != NULL){
+      cout << "\t(Data => " << pqueue->data << ", Priority => " << pqueue->priority <<" )," << endl;
+      pqueue = pqueue->next;
   }
 
-  void display()
-  {
-    Node *ptr;
-    ptr = front;
-    if (front == NULL)cout << "Queue is empty\n";
+  cout << "] "<< endl;
+}
 
-    while (ptr != NULL)
-    {
-        cout << "Data (" <<ptr->data<< ") ==> It's Priority (" << ptr->priority <<")"<< endl;
-        ptr = ptr->next;
-    }
+void enqueue(int value, int p){
+  PQueue *pqueue;
+  
+  temp = new PQueue;
+  temp->data = value;
+  temp->priority = p;
+
+  if (front == NULL || p < front->priority){
+    temp->next = front;
+    front= temp;
   }
+  else{
+    pqueue = front;
+    while (pqueue->next != NULL && pqueue->next->priority <= p)
+      pqueue = pqueue->next;
+    temp->next = pqueue->next;
+    pqueue->next = temp;
+  }
+
+  print("PriorityQueue Elements after insertion");
+}
+
+void dequeue(){
+  if (front == NULL) cout << "Underflow\n";
+
+  temp = front;
+  front = front->next;
+  delete(temp);
+
+  print("PriorityQueue Elements after insertion");
+
+}
+
+
 
 int main()
 {
 
-  int data, priority,choice,flag=1;
-           cout<<"\t\t\t\tPRIORITY QUEUE 2"<<endl;
+	cout << endl;
 
-     while( flag == 1)
-     {
-      cout<<"\t\t\t\n1.enqueue \t\t\t\n2.dequeue \t\t\t\n3.displayQueue \t\t\t\n4.exit\n";
-      cin>>choice;
-      switch (choice)
-      {
-      case 1: cout<<"Enter Data:\n";
-              cin>>data;
-              cout<<endl;
-              cout<<"Enter Priority:\n";
-              cin>>priority;
-              enqueue(data,priority);
-              break;
-      case 2: dequeue();
-              break;
-      case 3: display();
-              break;
-      case 4: flag = 0;
-              break;
-      default: flag=1;
-          break;
-      }
-     }
+	enqueue(1, 1);
+	enqueue(2, 2);
+	enqueue(3, 3);
+	enqueue(0, 0);
+
+	cout << "The FirstElement in PriorityQueue is: " << getFront() << endl;
+	cout << "The LastElement in PriorityQueue is: " << getRear() << endl;
+
+	dequeue();
+	dequeue();
+
+	cout << endl;
   return 0;
 }

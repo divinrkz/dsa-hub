@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "./operations.h"
+
 #define MAX_SIZE 10
 
 using namespace std;
