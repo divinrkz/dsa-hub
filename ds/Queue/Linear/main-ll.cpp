@@ -9,21 +9,23 @@ int main () {
 
 	cout << endl;
 
-	QNode *front;  
-	QNode *rear;   
+	QNode *front = NULL;  
+	QNode *rear = NULL;   
 
     
 	cout << "Size of LinearQueue is: "<< getSize(front) << endl;
 
-	enqueue(q, 1);
-	enqueue(q, 2);
-	enqueue(q, 3);
-	enqueue(q, 4);
+	enqueue(front, rear, 1);
+	enqueue(front, rear, 2);
+	enqueue(front, rear, 3);
+	enqueue(front, rear, 4);
+	enqueue(front, rear, 5);
 
-	cout << "The FirstElement in LinearQueue is: " << getFront(q) << endl;
-	cout << "The LastElement in LinearQueue is: " << getRear(q) << endl;
 
-	dequeue(q);
+	cout << "The FirstElement in LinearQueue is: " << getFront(front) << endl;
+	cout << "The LastElement in LinearQueue is: " << getRear(rear) << endl;
+
+	dequeue(front, rear);
 
 	cout << endl;
 

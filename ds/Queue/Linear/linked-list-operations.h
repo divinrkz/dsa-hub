@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "./declaration.h"
+#include "./declaration-ll.h"
 
 
 
@@ -9,6 +9,9 @@ int getSize(QNode *front)  {
     QNode *qnode;  
     qnode = front;  
     int count = 0;    
+
+    if (qnode == NULL) 
+        return count;
 
     while(qnode != NULL) {  
         count++;
@@ -20,10 +23,16 @@ int getSize(QNode *front)  {
 
 
 int getFront(QNode *front) {
+    if (front == NULL) {
+        return -1;
+    }
     return front->data;
 }
 
 int getRear(QNode *rear) {
+    if (rear == NULL) {
+        return -1;
+    }
     return rear->data;
 }
 
@@ -31,7 +40,7 @@ void print(string title, QNode *front)  {
     QNode *qnode;  
     qnode = front;      
   
-    cout << title << ": [ " << endl;  
+    cout << title << ": [ ";  
     
     while(qnode != NULL) {  
             cout << qnode->data << " ";  
@@ -42,7 +51,7 @@ void print(string title, QNode *front)  {
 }  
 
 
-void enqueue(QNode *front, QNode *rear, int data)  {  
+QNode* enqueue(QNode *front, QNode *rear, int data)  {  
     QNode *qnode;  
     int item;   
       
@@ -50,8 +59,9 @@ void enqueue(QNode *front, QNode *rear, int data)  {
 
     if(qnode == NULL){  
         cout << "Overflow" << endl;  
-        return;  
+        return NULL;  
     }  
+
     else {    
         qnode->data = data;  
         if(front == NULL)  {  
@@ -66,8 +76,13 @@ void enqueue(QNode *front, QNode *rear, int data)  {
         }  
     }  
 
+
     print("LinearQueue elements after insertion", front);
+
+    return qnode;
 }     
+
+
 void dequeue (QNode *front, QNode *rear)  {  
     QNode *qnode;  
     if(front == NULL){  
