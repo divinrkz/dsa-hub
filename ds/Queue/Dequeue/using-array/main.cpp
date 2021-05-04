@@ -3,21 +3,21 @@
 
 int main() {
 	
-	Queue *q = create(10);
+	DeQueue *dq = create(10);
 
 	cout << endl;
 
-	cout << "Size of LinearQueue is: "<< getSize(q) << endl;
+	cout << "Size of DeQueue is: "<< getSize(dq) << endl;
 
-	enqueue(q, 1);
-	enqueue(q, 2);
-	enqueue(q, 3);
-	enqueue(q, 4);
+	enqueue(dq, 1);
+	enqueue(dq, 2);
+	enqueue(dq, 3);
+	enqueue(dq, 0, "FRONT");
 
-	cout << "The FirstElement in LinearQueue is: " << getFront(q) << endl;
-	cout << "The LastElement in LinearQueue is: " << getRear(q) << endl;
+	cout << "The FirstElement in DeQueue is: " << getFront(dq) << endl;
+	cout << "The LastElement in DeQueue is: " << getRear(dq) << endl;
 
-	dequeue(q);
+	dequeue(dq);
 
 	cout << endl;
 

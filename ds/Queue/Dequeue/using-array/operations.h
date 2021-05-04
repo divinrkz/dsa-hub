@@ -50,7 +50,7 @@ DeQueue* enqueue(DeQueue *dqueue, int x, string position = "REAR") {
         else
             dqueue->front = (dqueue->front) - 1; 
 
-        dqueue->DQ[dqueue->front] = x ;   
+        dqueue->DQ[dqueue->front] = x;   
     }
     else if (position == "REAR") {
         if (dqueue->rear >= (dqueue->size - 1)) cout << "Overflow" << endl;
@@ -64,7 +64,7 @@ DeQueue* enqueue(DeQueue *dqueue, int x, string position = "REAR") {
         }
     }
 
-    print("Dequeue ELements after insertion", dqueue);
+    print("Dequeue Elements after insertion", dqueue);
     
     return dqueue;       
 } 
