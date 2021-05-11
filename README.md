@@ -1,2 +1,2 @@
-# A C++ DataStructures Implementation
-C++ Datastructures code repository
+# A C++ DataStructures and Algorithms Implementation
+C++ Datastructures and Algorithms code repository
