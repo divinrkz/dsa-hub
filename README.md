@@ -1,2 +1,2 @@
 # A C++ DataStructures and Algorithms Implementation
-C++ Datastructures and Algorithms code repository
+Datastructures and Algorithms Implementing using C++ Code
