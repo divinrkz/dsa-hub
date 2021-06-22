@@ -25,7 +25,7 @@ class BST {
 
     Node* insert(Node* node, int data) {
         if (node == NULL) {
-            node = new Node;
+            node = new Node; 
             node->data = data;
             node->left = node->right = NULL;
         }
