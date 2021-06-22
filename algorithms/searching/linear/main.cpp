@@ -18,7 +18,7 @@ int main() {
     int position = search(arr, n, x);
 
     (position == -1)
-        ? cout << "Element not found"
-        : cout << "Element found at: " << position;
+        ? cout << "Element not found" << endl
+        : cout << "Element found at: " << position << endl;
     return 0;
 }
